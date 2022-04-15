@@ -1,0 +1,29 @@
+{% extends 'e-commerce/index.html'%} {% load static %} {% block body %}
+
+<section class="content">
+  <div class="col-12">
+    <div class="card card-primary">
+      <div class="card-header">
+        <h4 class="card-title">Galeria de Comics</h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          {% for c in comic %}
+          <div class="col-sm-2">
+            <a
+              href="{{c.picture}}"
+              data-toggle="lightbox"
+              data-gallery="gallery"
+            >
+              <img src="{{c.picture}}" class="img-fluid mb-2" alt="comic" />
+              <figcaption>{{c.title}}</figcaption>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

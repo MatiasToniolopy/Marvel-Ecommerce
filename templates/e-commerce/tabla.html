@@ -1,0 +1,45 @@
+{% extends 'e-commerce/index.html' %} {% load static %} {% block body %}
+
+<section class="content">
+  <div class="col-md-12">
+    <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Comics</h3>
+      </div>
+
+      <div class="card-body">
+        <table class="table table-bordered">
+          {% for c in comic %}
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Titulo</th>
+              <th>Descripcion</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Foto</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>{{c.marvel_id}}</td>
+              <td>{{c.title}}</td>
+              {% if c.description %}
+              <td>{{c.description}}</td>
+              {% else %}
+              <td>Descripcion no disponible</td>
+            {% endif %}
+              <td>{{c.price}}</td>
+              <td>{{c.stock_qty}}</td>
+              <td><img src={{c.picture}}></td>
+            </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

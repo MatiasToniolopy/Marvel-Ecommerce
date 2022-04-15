@@ -1,0 +1,96 @@
+{% extends "e-commerce/index.html" %} {% block body %} {% load static %}
+<section class="content">
+  <div class="card card-solid">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12 col-sm-6">
+          <div class="col-12">
+            <img
+              src="{{comic.picture}}"
+              class="product-image"
+              alt="Product Image"
+            /></a>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <h3 class="my-3">{{comic.title}}</h3>
+          {% if comic.description %}
+          <p>{{comic.description}}</p>
+          {% else %}
+          <p>Descripción no disponible</p>
+          {% endif %}
+          <hr />
+
+          <div class="bg-gray py-2 px-3 mt-4">
+            <h2 class="mb-0">USD$ {{comic.price}}</h2>
+          </div><br>
+      <div id="grid-buttons">
+        <div class="grid-button-item">
+          <form action="{% url 'checkbutton' %}" method="POST">
+            {%csrf_token%}
+
+            <input type="hidden" name="username" value="{{user.username}}" />
+            <input type="hidden" name="marvel_id" value="{{comic.marvel_id}}" />
+            <input
+              type="hidden"
+              name="user_authenticated"
+              value="{{user.is_authenticated}}"
+            />
+            <input type="hidden" name="type_button" value="cart" />
+            <input type="hidden" name="actual_value" value="{{cart}}" />
+            <input type="hidden" name="path" value="{% url 'detail' %}" />
+
+            {% if cart %}
+            <div class="btn btn-success btn-lg btn-flat">
+              <i class="fas fa-cart-plus fa-lg mr-2"></i>
+              Este comic ya está en tu carrito
+           
+            </div>
+            {% else %}
+            <div class="btn btn-primary btn-lg btn-flat">
+              <i class="fas fa-cart-plus fa-lg mr-2"></i>
+              Para añadir al carrito presione
+              <button type="submit" class="btn btn-primary">Aquí</button>
+            </div>
+            {% endif %}
+          </form>
+        </div><br>
+        <div class="grid-button-item">
+          <form action="{% url 'checkbutton' %}" method="POST">
+            {%csrf_token%}
+
+            <input type="hidden" name="username" value="{{user.username}}" />
+            <input type="hidden" name="marvel_id" value="{{comic.marvel_id}}" />
+            <input
+              type="hidden"
+              name="user_authenticated"
+              value="{{user.is_authenticated}}"
+            />
+            <input type="hidden" name="type_button" value="favorite" />
+            <input type="hidden" name="actual_value" value="{{favorite}}" />
+            <input type="hidden" name="path" value="{% url 'detail' %}" />
+
+            {% if favorite %}
+            <div class="btn btn-success btn-lg btn-flat">
+              <i class="fas fa-heart fa-lg mr-2"></i>
+             Este comic ya está en tus favoritos
+              
+            </div>
+            {% else %}
+            <div class="btn btn-primary btn-lg btn-flat">
+              <i class="fas fa-heart fa-lg mr-2"></i>
+              Para añadir a favoritos presione
+              <button type="submit" class="btn btn-primary">Aquí</button>
+            </div>
+            {% endif %}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+{% endblock %}

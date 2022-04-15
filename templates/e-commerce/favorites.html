@@ -1,0 +1,96 @@
+{% extends 'e-commerce/index.html' %} {% load static %} {% block body %}
+
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-widget widget-user-2">
+        <div class="card-warning">
+          <div class="card-header">
+            <h3 class="card-title">Tus Favoritos</h3>
+          </div>
+        </div>
+        <div class="widget-user-header bg-warning">
+          <div class="widget-user-image">
+            <img
+              class="img-circle elevation-2"
+              src="{{request.user.profile.avatar.url}}"
+              alt="User Avatar"
+            />
+          </div>
+
+          <h3 class="widget-user-username">{{user.username}}</h3>
+          <h5 class="widget-user-desc">Lista de favoritos</h5>
+        </div>
+        <div class="card-footer p-0">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <b class="nav-link">
+                Cantidad de Favoritos
+                <span class="float-right badge bg-primary">{{fav}}</span>
+              </b>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 table-responsive">
+    <div class="card-warning">
+      <div class="card-header">
+        <h3 class="card-title">Tu detalle de <b>Favoritos</b></h3>
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Titulo del Comic</th>
+          <th>Descripción</th>
+          <th>Foto</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      {% for c in fav_items %}
+      <tbody>
+        <tr>
+          <td><i>{{c.title}}</i></td>
+          {% if c.description %}
+          <td><i>{{c.description}}</i></td>
+          {% else %}
+          <td><i>Descripción no disponible</i></td>
+          {% endif %}
+          <td>
+            <img class="comic_img" src="{{c.picture}}" alt="Not found" />
+          </td>
+          <td>
+            <form action="{% url 'checkbutton' %}" method="POST">
+              {%csrf_token%}
+
+              <input type="hidden" name="username" value="{{user.username}}" />
+              <input type="hidden" name="marvel_id" value="{{c.marvel_id}}" />
+              <input
+                type="hidden"
+                name="user_authenticated"
+                value="{{user.is_authenticated}}"
+              />
+              <input type="hidden" name="type_button" value="favorite" />
+              <input type="hidden" name="actual_value" value="True" />
+              <input type="hidden" name="path" value="wish" />
+              <input type="hidden" name="path" value="{% url 'favorites' %}" />
+
+              <input
+                type="image"
+                src="{% static 'dist/img/favorito.png' %}"
+                width="25%"
+              />
+            </form>
+            <p><b>Eliminar de favoritos</b></p>
+          </td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+  </div>
+</section>
+
+{% endblock %}

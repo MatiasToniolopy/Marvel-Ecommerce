@@ -1,0 +1,36 @@
+{% extends 'e-commerce/index.html' %}
+{% load static %}
+
+{% block body %}
+
+<section class="content">
+  <div class="card-info">
+    <div class="card-header">
+      <h3 class="card-title">Tus Datos</h3>
+    </div>
+  </div>
+    <ul class="list-group">
+      {% for k, v in user_data.items %}
+
+      
+        <li class="list-group-item list-group-item-warning"><b>{{k}}:</b> {{v}}</li>
+       
+        {% endfor %}
+      </ul>
+       <br>
+      <div class="card-info">
+        <div class="card-header">
+          <h3 class="card-title">Datos Extra</h3>
+        </div>
+      </div>
+        <ul class="list-group">
+          {% for k, v in extradata.items %}
+    
+          
+            <li class="list-group-item list-group-item-dark"><b>{{k}}:</b> {{v}}</li>
+           
+            {% endfor %}
+          </ul>
+</section>
+
+{% endblock %}

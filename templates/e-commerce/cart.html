@@ -1,0 +1,112 @@
+{% extends 'e-commerce/index.html' %} {% load static %} {% block body %}
+
+<section class="content">
+  <div class="col-12 table-responsive">
+    <div class="card-primary">
+      <div class="card-header">
+        <h3 class="card-title">
+          Tu Carrito de Compras {{user.username|upper}}
+        </h3>
+      </div>
+    </div>
+    <table class="table table-striped">
+      {% for comic in cart_items %}
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Titulo</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Unidades</th>
+          <th>Total</th>
+          <th>Acción</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="/e-commerce/detail?marvel_id={{comic.marvel_id}}">
+            <img src="{{comic.picture}}" alt="Not found"></a>
+          </td>
+          <td><i>{{comic.title}}</i></td>
+          <td>{{comic.price}}</td>
+          <td>{{comic.stock_qty}}</td>
+          <td>
+            <form action="{% url 'updateqty' %}" method="POST">
+              {% csrf_token %}
+           
+              <input type="number" name="quantity" min="0" max="{{comic.wished_qty_restant}}" placeholder="0">
+              <input type="hidden" name="comic_id" value="{{comic.id}}"><br>
+              <button type="submit" class="btn btn-outline-secondary"><i>Agregar al Carrito</i></button>
+          </form>
+          </td>
+          <td>{{comic.wished_qty_act}}</td>
+          <td>
+            <form action="{% url 'checkbutton' %}" method="POST">{%csrf_token%}
+              <input type="hidden" name="username" value="{{user.username}}">
+              <input type="hidden" name="marvel_id" value="{{comic.marvel_id}}">
+              <input type="hidden" name="user_authenticated" value="{{user.is_authenticated}}">
+              <input type="hidden" name="type_button" value="cart">
+              <input type="hidden" name="actual_value" value="True">
+              <input type="hidden" name="path" value="cart">
+              <input type="hidden" name="path" value="{% url 'cart' %}">
+              <input type="image" src="{% static 'dist/img/carrito.jpg' %}" width="25%">
+          </form>
+
+          <p><b>Eliminar del carrito</b></p>
+          </td>
+          <td>
+           {{total_price}}
+        </td>
+        <td style="text-align: center;">
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-6">
+      <p class="lead">Metodos de Pago:</p>
+      <img src="{% static 'dist/img/credit/visa.png'%}" alt="Visa" />
+      <img
+        src="{% static 'dist/img/credit/mastercard.png' %}"
+        alt="Mastercard"
+      />
+      <img
+        src="{% static 'dist/img/credit/american-express.png'%}"
+        alt="American Express"
+      />
+      <img src="{% static 'dist/img/credit/paypal2.png'%}" alt="Paypal" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6"></div>
+
+    <div class="col-6">
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Total a pagar:</th>
+              <td>{{total_price}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row no-print">
+    <div class="col-12">
+      <a
+        href="{% url 'saludo' %}"
+        type="button"
+        class="btn btn-success float-right mr-5"
+      >
+        <i class="far fa-credit-card"></i> Confirmar Pago
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

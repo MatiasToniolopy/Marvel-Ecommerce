@@ -1,0 +1,48 @@
+{% extends 'e-commerce/index.html' %} {% load static %} {% block body %}
+
+<section class="content">
+  <div class="card card-primary">
+    <div class="card-header">
+      <h4 class="card-title">Contacta con Nosotros</h4>
+    </div>
+    <div class="card-body row">
+      <div
+        class="col-5 text-center d-flex align-items-center justify-content-center"
+      >
+        <div class="">
+          <h2>E-commerce<strong> MARVEL</strong></h2>
+          <p class="lead mb-5">
+            Buenos Aires, Pinamar Av. españa 1072<br />
+            Teléfono: +549 3454017992
+          </p>
+        </div>
+      </div>
+      <div class="col-7">
+        <form action="{% url 'contact' %}" method="post"> {% csrf_token %}
+         
+          <div class="form-group">
+            <label for="inputEmail">E-Mail*</label>
+            <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Ingresa tu E-mail" required="required" />
+          </div>
+          <div class="form-group">
+            <label for="inputSubject">Asunto*</label>
+            <input type="text" id="inputSubject" class="form-control" name="asunto" placeholder="Ingresa tu Asunto" required="required" />
+          </div>
+          <div class="form-group">
+            <label for="inputMessage">Mensaje*</label>
+            <textarea id="inputMessage" class="form-control" rows="4" name="mensaje" placeholder="Ingresa tu Mensaje" required="required"></textarea>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1" required="required">
+            <label class="custom-control-label" for="exampleCheck1">Confirmas el envio de Email?</label>
+          </div><br>
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Enviar">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock%}

@@ -1,0 +1,44 @@
+{% extends 'e-commerce/index.html'%}
+{% load static %}
+
+{% block body %}
+
+<section class="content">
+    <div class="alert alert-success" role="alert">
+        <h2 class='text-center'><b>Muchas gracias por su compra...</b></h2>
+        <h3 class="alert-heading">Todo salió con éxito!</h3>
+        <p>Gracias por elegirnos, el pago se realizó con éxito.</p>
+        <hr>
+        <p class="mb-0">Recuerde que una vez recibido el producto, no hay devoluciónes ni reclamos.</p>
+      </div>
+
+      <div class="col-12 table-responsive">
+        <div class="card-success">
+          <div class="card-header">
+            <h3 class="card-title">
+              Tu detalle de Compra
+            </h3>
+          </div>
+        </div>
+        <table class="table table-striped">
+          {% for c in comics %}
+          <thead>
+            <tr>
+              <th>Comic</th>
+              <th>Descripción</th>
+              <th>Fecha de Compra</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{c.title}}</td>
+              <td>{{c.description}}</td>
+              <td>{{date}}</td>
+            </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+      </div>
+</section>
+
+{% endblock %}
