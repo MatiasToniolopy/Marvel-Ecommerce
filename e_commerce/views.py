@@ -74,7 +74,7 @@ class LogoutView(RedirectView):
     pattern_name = 'login'
     
     def dispatch(self, request, *args, **kwargs):
-        messages.success(self.request, 'Bienvendo a Marvel E-commerce')
+        messages.success(self.request, 'Sesion cerrada con exito!')
         logout(request)
         return super().dispatch(request, *args, **kwargs)
 
