@@ -315,8 +315,8 @@ class PassView(View):
     def post(self, request):
         email = request.POST['email']
         context = {'values': request.POST}
-        
-        if not validate_email(email):
+        data = User.objects.filter(email=email)
+        if not data.exists():
             messages.error(request, 'Email invalido')
             return render(request, 'e-commerce/resetpassword.html', context)
         
