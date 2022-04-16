@@ -43,7 +43,7 @@ Este proyecto se desarrolló en un transcurso de 7 dias
 - `python manage.py makemigrations`
 - `python manage.py migrate`
 - `python manage.py createsuperuser`
-- - `python manage.py runserver`
+- `python manage.py runserver`
 
 ##### 7) Insertar información inicial en la base de datos
 
