@@ -27,24 +27,25 @@ Este proyecto se desarrolló en un transcurso de 7 dias
 
 # Instalación
 
-##### 5) Clonar o descargar el proyecto del repositorio
+##### 4) Clonar o descargar el proyecto del repositorio
 
 `git clone https://repo...
 
 
 
 
-##### 4) Instalar todas las librerias del proyecto 
+##### 5) Instalar todas las librerias del proyecto 
 
 - `pip install -r requirements.txt`
 
-##### 5) Crear la base de datos con las migraciones y el superuser para iniciar sesión
+##### 6) Crear la base de datos con las migraciones y el superuser para iniciar sesión
 
 - `python manage.py makemigrations`
 - `python manage.py migrate`
 - `python manage.py createsuperuser`
+- - `python manage.py runserver`
 
-##### 6) Insertar información inicial en la base de datos
+##### 7) Insertar información inicial en la base de datos
 
 - `python manage.py shell`
 
