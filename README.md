@@ -2,7 +2,7 @@
 
 # Bienvenidos a mi repositorio 
 
-Este proyecto se desarrolló en un transcurso de 7 dias
+Este proyecto aún esta en desarrollo...
 
 
 # Instaladores
