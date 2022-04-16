@@ -11,7 +11,6 @@ Este proyecto se desarrolló en un transcurso de 7 dias
 
 - [Python3](https://www.python.org/downloads/release/python-396/ "Python3")
 
-##### 2) IDE
 
 - [Visual Studio Code](https://code.visualstudio.com/ "Visual Studio Code")
 
