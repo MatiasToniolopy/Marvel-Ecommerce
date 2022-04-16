@@ -15,24 +15,21 @@ Este proyecto se desarrolló en un transcurso de 7 dias
 - [Visual Studio Code](https://code.visualstudio.com/ "Visual Studio Code")
 
 
-##### 3) Motor de base de datos
+##### 2) Motor de base de datos
 
 - [Sqlite Studio](https://github.com/pawelsalawa/sqlitestudio/releases "Sqlite Studio")
 - [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads "PostgreSQL")
 - [MySQL](https://www.apachefriends.org/es/index.html "MySQL")
 
-##### 4) Repositorios
+##### 3) Repositorios
 
 - [Git](https://git-scm.com/downloads "Git")
 
 # Instalación
 
-##### 1) Clonar o descargar el proyecto del repositorio
+##### 5) Clonar o descargar el proyecto del repositorio
 
-`git clone https://repo...`
-
-
-##### 2) Instalar el complemento de [weasyprint](https://weasyprint.org/ "weasyprint")
+`git clone https://repo...
 
 
 
