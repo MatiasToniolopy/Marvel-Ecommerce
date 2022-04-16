@@ -34,17 +34,17 @@ Este proyecto se desarrolló en un transcurso de 7 dias
 
 
 
-##### 3) Instalar todas las librerias del proyecto que se encuentran en la carpeta deploy
+##### 4) Instalar todas las librerias del proyecto 
 
 - `pip install -r requirements.txt`
 
-##### 6) Crear la base de datos con las migraciones y el superuser para iniciar sesión
+##### 5) Crear la base de datos con las migraciones y el superuser para iniciar sesión
 
 - `python manage.py makemigrations`
 - `python manage.py migrate`
 - `python manage.py createsuperuser`
 
-##### 7) Insertar información inicial en la base de datos
+##### 6) Insertar información inicial en la base de datos
 
 - `python manage.py shell`
 
