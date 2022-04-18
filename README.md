@@ -1,5 +1,7 @@
 # Marvel-Ecommerce
 
+[![screenshot.png](https://i.postimg.cc/g2QbRp37/screenshot.png)](https://postimg.cc/HrwNDfZ0)
+
 # Bienvenidos a mi repositorio 
 
 Este proyecto aún esta en desarrollo...
